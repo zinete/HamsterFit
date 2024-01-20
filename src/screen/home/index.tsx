@@ -2,23 +2,25 @@
  * @ Author: ZhengHui
  * @ Create Time: 2023-05-21 21:31:52
  * @ Modified by: ZhengHui
- * @ Modified time: 2023-05-27 19:30:53
+ * @ Modified time: 2024-01-20 12:53:19
  * @ Description:
  */
 
 import * as React from 'react';
 
-import {Button, Layout} from '@ui-kitten/components';
 import LayoutWrapper from '../../components/Layout';
+import {Button} from 'react-native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../Root';
 
-const HomeScreen = ({navigation}: any) => {
+interface IHomeScreenProps extends NativeStackScreenProps<RootStackParamList> {}
+const HomeScreen = ({navigation}: IHomeScreenProps) => {
   return (
-    <LayoutWrapper padding={{horizontal: 16}} level={'1'}>
-      <Layout level="2" style={{gap: 10, marginTop: 10}}>
-        <Button onPress={() => navigation.navigate('Setup')}>
-          Go to Setup Page
-        </Button>
-      </Layout>
+    <LayoutWrapper>
+      <Button
+        title=" Go to Setup Page"
+        onPress={() => navigation.navigate('Setup')}
+      />
     </LayoutWrapper>
   );
 };
